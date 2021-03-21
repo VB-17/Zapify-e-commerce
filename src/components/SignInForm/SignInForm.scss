@@ -1,0 +1,61 @@
+.signInForm {
+    display: grid;
+    place-items: center;
+}
+
+.signInDetail {
+    width: 30%;
+    padding: 40px;
+    background-color: #1e1d1e;
+    color: white;
+    border-radius: 10px;
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 15px;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        background: linear-gradient(to right, #da3b42, #f5745d);
+    }
+
+    &__bottom {
+       display: flex;
+       justify-content: center;
+       text-align: center;
+       margin-top: 20px;
+       width: 100%;
+
+       p{
+           margin-right: 5px;
+       }
+        &--link {
+            color: lighten($color: gray, $amount: 10);
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+
+    label {
+        color: lighten($color: gray, $amount: 20);
+        margin-bottom: 10px;
+    }
+
+    input {
+        border-radius: 5px;
+        border: none;
+        padding: 15px;
+        font-size: 15px;
+    }
+}

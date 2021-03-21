@@ -1,0 +1,31 @@
+.scrollIndicator{
+    width: 30px;
+    height: 60px;
+    border: 3px solid #fff;
+    border-radius: 48px;
+    position: relative;
+}
+
+.scrollIndicator::before{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 8px;
+    background-color: #fff;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    animation: scroll 1s infinite;
+}
+
+@keyframes scroll{
+    from{
+        opacity: 1;
+        top: 10px;
+    }
+    to{
+        opacity: 0;
+        top: 30px;
+    }
+}

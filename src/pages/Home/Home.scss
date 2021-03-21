@@ -1,0 +1,68 @@
+.home {
+    width: 100%;
+
+    .scroll {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__banner {
+        position: relative;
+        display: grid;
+        place-items: center;
+        background: #1e1d1e;
+        min-height: 100vh;
+
+        &-container {
+            width: 80%;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            align-items: center;
+
+            img {
+                width: 40%;
+            }
+
+            &--info {
+                width: 50%;
+                h1 {
+                    font-weight: 900;
+                    line-height: 80px;
+
+                    font-size: 60px;
+                    color: white;
+                }
+
+                p {
+                    line-height: 25px;
+                    margin: 25px 0;
+                    color: #c4ccc7;
+                    width: 70%;
+                }
+
+                button {
+                    margin-top: 15px;
+                    cursor: pointer;
+                    padding: 14px 30px;
+                    border: none;
+                    border-radius: 25px;
+
+                    font-size: 16px;
+                    width: 35%;
+                    color: white;
+
+                    background: linear-gradient(to right, #da3b42, #f5745d);
+
+                    &:hover {
+                        background: #da3b42;
+                    }
+                }
+            }
+        }
+    }
+}

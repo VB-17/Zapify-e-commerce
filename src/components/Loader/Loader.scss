@@ -1,0 +1,15 @@
+.loaders {
+    display: grid;
+    place-items: center;
+    &__circular {
+        display: inline-block;
+        border-radius: 100%;
+        animation: 1s spin infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,50 @@
+.productList{   
+    padding: 50px 0;
+    &__categories{
+        text-align: center;
+        margin: 10vh auto;
+        button{
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            padding: 12px 25px;
+            color: white;
+            background: #1e1e1e;
+
+            &:not(:last-child){
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &__latest , &__featured{
+        margin: 5rem 0;
+        h1{
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        h1::after{
+            content: '';
+            display: block;
+            text-align: center;
+            background: coral;
+            // position: absolute;
+            height: 5px;
+            width: 100px;
+            margin: auto;
+            text-align: center;
+     
+        }
+    }
+}
+.grid{
+    display: grid;
+    place-items: center;
+    width: 80%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 3rem;
+}

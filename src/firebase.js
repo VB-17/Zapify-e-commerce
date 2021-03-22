@@ -3,12 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBom4zDke9mYimbaK5pacCXKwvITxGkluQ",
-  authDomain: "e-commerce-store-37b6c.firebaseapp.com",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
   projectId: "e-commerce-store-37b6c",
   storageBucket: "e-commerce-store-37b6c.appspot.com",
-  messagingSenderId: "726421179450",
-  appId: "1:726421179450:web:52f4f76b9bf4c11104f903",
+  messagingSenderId: process.env.MESSAGING_SENDER,
+  appId: process.env.APP_ID,
   measurementId: "G-PTYZ6ND9BV",
 };
 

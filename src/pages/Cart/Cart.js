@@ -10,6 +10,7 @@ import { useGlobalState } from "../../contexts/StateProvider";
 import { getCartItems } from "../../utils/firebaseUtils";
 import Loader from "../../components/Loader/Loader";
 import CartItem from "../../components/CartItem/CartItem";
+import { UnsubscribeTwoTone } from "@material-ui/icons";
 
 function Cart() {
   const [{ user }] = useGlobalState();
@@ -23,18 +24,15 @@ function Cart() {
       }
     };
 
-    console.log("rendered");
     fetchItems();
   }, [user]);
 
-  // const remove = (id, size) => {
-  //   const index = cart.findIndex((i) => i.id === id && i.size === size);
-  //   cart.splice(index, 1);
-
-  //   const newCart = [...cart];
-  //   db.collection("Users").doc(user?.uid).update({ cart: newCart });
-  //   setCart(newCart);
-  // };
+  const remove = (id, size) => {
+    const index = cart.findIndex((i) => i.id === id && i.size === size);
+    cart.splice(index, 1);
+    const newCart = [...cart];
+    setCart(newCart);
+  };
 
   // const toggle = (id, size, type) => {
   //   const newCart = cart.map((item) => {
@@ -73,7 +71,7 @@ function Cart() {
                   <div key={idx} className="item">
                     <CartItem
                       {...p}
-                      // remove={(a, b) => remove(a, b)}
+                      remove={(a, b) => remove(a, b)}
                       // toggle={(a, b, c) => toggle(a, b, c)}
                     />
                   </div>

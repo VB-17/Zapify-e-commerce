@@ -88,64 +88,50 @@ export const getCartItems = async (userId) => {
 
 export const toggleQuantity = async (userId, productId, size, variable) => {
   const userRef = db.doc(`Users/${userId}`);
-  const snap = await userRef.get();
-  const cart = snap.data()?.cart;
+  const { cart } = await (await userRef.get()).data();
 
-  const modifiedArray = [];
+  const item = cart.find((v) => v.product === productId && v.size === size);
 
-  cart.forEach((v) => {
-    if (v.product === productId && v.size === size) {
-      if (variable === "inc") {
-        v.quantity += 1;
-      } else if (variable === "dec") {
-        if (!(v.quantity > 0)) {
-          v.quantity -= 1;
-        }
-      }
-    }
+  // .onSnapshot((snap) => snap.docs.map((doc) => console.log(doc.data())));
 
-    modifiedArray.push(v);
-  });
+  // console.log(cart);
+  // console.log(item);
+  // if (item) {
+  //   if (variable === "inc") {
+  //     item.quantity++;
+  //   } else if (variable === "dec") {
+  //     if (!item.quantity > 1) {
+  //       item.quantity--;
+  //     }
+  //   }
+  // }
 
-  console.log(modifiedArray);
+  // try {
+  //   await userRef.update({
+  //     cart: [...cart, item],
+  //   });
+  // } catch (err) {
+  //   console.log("Cannot updating the cart", err.message);
+  // }
+};
+
+export const removeItem = async (userId, productId, productSize) => {
+  const userRef = db.doc(`Users/${userId}`);
+  const { cart } = (await userRef.get()).data();
+
+  console.log(cart);
+
+  const newCart = cart.filter(
+    (v) => v.product !== productId && v.size !== productSize
+  );
+
+  console.log(newCart);
 
   try {
     await userRef.update({
-      cart: modifiedArray,
+      cart: newCart,
     });
   } catch (err) {
-    console.log("Cannot updating the cart", err.message);
+    console.log("Cannot remove item", err.message);
   }
 };
-
-// export const removeItem = async (userId, productId, productSize) => {
-//   const userRef = db.doc(`Users/${userId}`);
-//   const snap = await userRef.get();
-//   const cart = snap.data()?.cart;
-//   let cart = [];
-//   db.collection("Users")
-//     .doc(userId)
-//     .onSnapshot((snap) => {
-//       cart.push(snap.data().cart);
-//     });
-
-//   const newCart = cart.filter(
-//     (v) => v.product !== productId && v.size !== productSize
-//   );
-
-//   const newCart = cart.filter(
-//     (v) => v.product !== productId && v.size !== productSize
-//   );
-
-//   const newCart = cart.filter(
-//     ({ product, size }) => product !== productId && size !== productSize
-//   );
-
-//   try {
-//     await userRef.update({
-//       cart: newCart,
-//     });
-//   } catch (err) {
-//     console.log("Cannot remove item", err.message);
-//   }
-// };

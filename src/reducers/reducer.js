@@ -8,7 +8,7 @@ const reducer = (state, action) => {
       console.log(action);
       return {
         ...state,
-        user: action.user,  
+        user: action.user,
       };
 
     case "REMOVE_USER":
@@ -16,6 +16,9 @@ const reducer = (state, action) => {
         ...state,
         user: null,
       };
+
+    case "ADD_TO_CART":
+      return { ...state };
 
     default:
       return state;

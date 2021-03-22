@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import "./CartItem.scss";
 
-import firebase from "firebase/app";
-import "firebase/firestore";
-
 import { useGlobalState } from "../../contexts/StateProvider";
 import db from "../../firebase";
+
+import { toggleQuantity, removeItem } from "../../utils/firebaseUtils";
 
 function CartItem({
   remove,
@@ -17,6 +16,8 @@ function CartItem({
   quantity,
   image,
 }) {
+  const [{ user }, dispatch] = useGlobalState();
+
   return (
     <div className="cartItem">
       <div className="cartItem__col1">
@@ -30,15 +31,19 @@ function CartItem({
         </div>
       </div>
       <div className="cartItem__col2">
-        <button onClick={() => toggle(product, size, "dec")}>-</button>
+        <button onClick={() => toggleQuantity(user.uid, product, size, "dec")}>
+          -
+        </button>
         <h3>{quantity}</h3>
-        <button onClick={() => toggle(product, size, "inc")}>+</button>
+        <button onClick={() => toggleQuantity(user.uid, product, size, "inc")}>
+          +
+        </button>
       </div>
       <div className="cartItem__col3">
         <h3>${price}.00</h3>
       </div>
       <div className="cartItem__col4">
-        <button onClick={() => remove(product, size)}>X</button>
+        <button onClick={() => removeItem(user.uid, product, size)}>X</button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.scss";
 
 import Cookies from "js-cookie";
@@ -10,7 +10,7 @@ import { useGlobalState } from "../../contexts/StateProvider";
 import { getCartItems } from "../../utils/firebaseUtils";
 import Loader from "../../components/Loader/Loader";
 import CartItem from "../../components/CartItem/CartItem";
-import { UnsubscribeTwoTone } from "@material-ui/icons";
+import { ContactsOutlined } from "@material-ui/icons";
 
 function Cart() {
   const [{ user }] = useGlobalState();
@@ -18,8 +18,8 @@ function Cart() {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const items = await getCartItems(user?.uid);
-      if (items) {
+      if (user) {
+        const items = await getCartItems(user.uid);
         setCart(items);
       }
     };
@@ -27,29 +27,74 @@ function Cart() {
     fetchItems();
   }, [user]);
 
-  const remove = (id, size) => {
-    const index = cart.findIndex((i) => i.id === id && i.size === size);
-    cart.splice(index, 1);
-    const newCart = [...cart];
+  const toggle = (id, size, type) => {
+    const newCart = cart.map((item) => {
+      if (item.product === id && item.size === size) {
+        if (type === "inc") {
+          item.quantity++;
+        } else if (type === "dec" && item.quantity > 1) {
+          item.quantity--;
+        }
+      }
+      return item;
+    });
+
     setCart(newCart);
+
+    const dbCart = [];
+
+    newCart.forEach((item) => {
+      dbCart.push({
+        quantity: item.quantity,
+        size: item.size,
+        product: item.product,
+      });
+    });
+
+    const updateDb = async () => {
+      const userRef = db.collection("Users").doc(user.uid);
+      try {
+        await userRef.update({
+          cart: dbCart,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    updateDb();
   };
 
-  // const toggle = (id, size, type) => {
-  //   const newCart = cart.map((item) => {
-  //     if (item.id === id && item.size === size) {
-  //       if (type === "inc") {
-  //         return { ...item, quantity: item.quantity++ };
-  //       } else if (type === "dec") {
-  //         return { ...item, quantity: item.quantity-- };
-  //       }
-  //     }
+  const remove = (id, size) => {
+    const newCart = cart.filter(
+      (item) => item.proudct !== id && item.size !== size
+    );
 
-  //     return item;
-  //   });
+    setCart(newCart);
 
-  //   setCart(newCart);
-  //   db.collection("Users").doc(user.uid).update({ cart: newCart });
-  // };
+    const dbCart = [];
+
+    newCart.forEach((item) => {
+      dbCart.push({
+        quantity: item.quantity,
+        size: item.size,
+        product: item.product,
+      });
+    });
+
+    const updateDb = async () => {
+      const userRef = db.collection("Users").doc(user.uid);
+      try {
+        await userRef.update({
+          cart: dbCart,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    updateDb();
+  };
 
   return (
     <>
@@ -67,19 +112,22 @@ function Cart() {
               </div>
               <hr />
               <div className="cartInfo__items">
+                {cart.length === 0 && (
+                  <h1 className="empty_cart">Your Cart is Empty</h1>
+                )}
                 {cart.map((p, idx) => (
                   <div key={idx} className="item">
                     <CartItem
                       {...p}
                       remove={(a, b) => remove(a, b)}
-                      // toggle={(a, b, c) => toggle(a, b, c)}
+                      toggle={(a, b, c) => toggle(a, b, c)}
                     />
                   </div>
                 ))}
               </div>
             </div>
             <div className="cartInfo__orderSummary">
-              <OrderSummary />
+              <OrderSummary cart={cart} />
             </div>
           </div>
         ) : (

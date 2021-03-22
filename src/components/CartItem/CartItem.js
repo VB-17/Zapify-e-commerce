@@ -4,7 +4,7 @@ import "./CartItem.scss";
 import { useGlobalState } from "../../contexts/StateProvider";
 import db from "../../firebase";
 
-import { toggleQuantity, removeItem } from "../../utils/firebaseUtils";
+// import { toggleQuantity, removeItem } from "../../utils/firebaseUtils";
 
 function CartItem({
   remove,
@@ -31,19 +31,15 @@ function CartItem({
         </div>
       </div>
       <div className="cartItem__col2">
-        <button onClick={() => toggleQuantity(user.uid, product, size, "dec")}>
-          -
-        </button>
+        <button onClick={() => toggle(product, size, "dec")}>-</button>
         <h3>{quantity}</h3>
-        <button onClick={() => toggleQuantity(user.uid, product, size, "inc")}>
-          +
-        </button>
+        <button onClick={() => toggle(product, size, "inc")}>+</button>
       </div>
       <div className="cartItem__col3">
         <h3>${price}.00</h3>
       </div>
       <div className="cartItem__col4">
-        <button onClick={() => removeItem(user.uid, product, size)}>X</button>
+        <button onClick={() => remove(product, size)}>X</button>
       </div>
     </div>
   );

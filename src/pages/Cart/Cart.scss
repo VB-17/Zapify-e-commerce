@@ -1,49 +1,61 @@
-
 .cart {
-    &__hero {
-        display: grid;
-        text-align: center;
-        place-items: center;
-        height: 35vh;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            url("https://cdn.pixabay.com/photo/2015/10/12/15/18/clothing-store-984396_1280.jpg");
-        background-size: cover;
-        background-position: center;
+  &__hero {
+    display: grid;
+    text-align: center;
+    place-items: center;
+    height: 35vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("https://cdn.pixabay.com/photo/2015/10/12/15/18/clothing-store-984396_1280.jpg");
+    background-size: cover;
+    background-position: center;
 
-        h1 {
-            color: white;
-            font-size: 50px;
-            letter-spacing: 2px;
-        }
+    h1 {
+      color: white;
+      font-size: 50px;
+      letter-spacing: 2px;
     }
+  }
 
-    &__loader{
-        margin: 100px;
-    }
+  &__loader {
+    margin: 100px;
+  }
 }
 
 .cartHeader {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .cartInfo {
-    // border: 5px red solid;
-    display: grid;
-    grid-template-columns: 65% 35%;
-    width: 80%;
-    margin: 40px auto;
+  // border: 5px red solid;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  width: 80%;
+  margin: 40px auto;
 
-    &__items{
-        padding: 10px 5px;
+  &__items {
+    height: 80%;
+    // border: 10px red solid;
+    position: relative;
+    padding: 10px 5px;
 
-        .item{
-            margin-bottom: 15px;
-        }
+    .item {
+      margin-bottom: 15px;
     }
+  }
 
-    &__orderSummary {
-        margin-left: 2rem;
-    }
+  &__orderSummary {
+    margin-left: 2rem;
+  }
+}
+
+.empty_cart {
+  position: absolute;
+  width: auto;
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  color: #da3b42;
+  transform: translate(-50%, -50%);
 }

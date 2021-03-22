@@ -20,11 +20,9 @@ export const createUser = async (userAuth) => {
 
 export const setItemToCart = async (userId, productId, size) => {
   const userRef = db.doc(`Users/${userId}`);
-  const snap = await userRef.get();
-  const data = snap.data();
-  const cart = await data?.cart;
+  const cart = (await userRef.get()).data().cart;
 
-  const isPresent = cart?.some((item) => {
+  const isPresent = cart.some((item) => {
     return item.product === productId && item.size === size;
   });
 
@@ -59,7 +57,7 @@ const getItems = async (item_ids) => {
 
 export const getCartItems = async (userId) => {
   const userRef = db.doc(`Users/${userId}`);
-  const cart = (await userRef.get()).data()?.cart;
+  const cart = (await userRef.get()).data().cart;
 
   const cartItems = [];
   if (cart) {
@@ -84,54 +82,4 @@ export const getCartItems = async (userId) => {
   }
 
   return cartItems;
-};
-
-export const toggleQuantity = async (userId, productId, size, variable) => {
-  const userRef = db.doc(`Users/${userId}`);
-  const { cart } = await (await userRef.get()).data();
-
-  const item = cart.find((v) => v.product === productId && v.size === size);
-
-  // .onSnapshot((snap) => snap.docs.map((doc) => console.log(doc.data())));
-
-  // console.log(cart);
-  // console.log(item);
-  // if (item) {
-  //   if (variable === "inc") {
-  //     item.quantity++;
-  //   } else if (variable === "dec") {
-  //     if (!item.quantity > 1) {
-  //       item.quantity--;
-  //     }
-  //   }
-  // }
-
-  // try {
-  //   await userRef.update({
-  //     cart: [...cart, item],
-  //   });
-  // } catch (err) {
-  //   console.log("Cannot updating the cart", err.message);
-  // }
-};
-
-export const removeItem = async (userId, productId, productSize) => {
-  const userRef = db.doc(`Users/${userId}`);
-  const { cart } = (await userRef.get()).data();
-
-  console.log(cart);
-
-  const newCart = cart.filter(
-    (v) => v.product !== productId && v.size !== productSize
-  );
-
-  console.log(newCart);
-
-  try {
-    await userRef.update({
-      cart: newCart,
-    });
-  } catch (err) {
-    console.log("Cannot remove item", err.message);
-  }
 };

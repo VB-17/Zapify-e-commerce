@@ -1,18 +1,11 @@
 import React from "react";
 import "./OrderSummary.scss";
 
-import {useGlobalState} from '../../contexts/StateProvider';
-
-
-
-
-function OrderSummary() {
-  // const {cart} = useGlobalState();
-
-  // const totalPrice = cart.reduce((acc , current) => {
-  //   return acc += current.price * current.quantity
-  // }, 0 )
-
+function OrderSummary({ cart }) {
+  const totalCost = cart.reduce((acc, curr) => {
+    return acc + curr.price * curr.quantity;
+  }, 0);
+  
   return (
     <div className="OrderSummary">
       <div className="OrderSummary__card">
@@ -20,7 +13,7 @@ function OrderSummary() {
         <div className="OrderSummary__card--detail">
           <div className="row">
             <h3>Items :</h3>
-            {/* <p>{cart.length}</p> */}
+            <p>{cart.length}</p>
           </div>
           <div className="row">
             <h3>Shipping :</h3>
@@ -28,7 +21,7 @@ function OrderSummary() {
           </div>
           <div className="row">
             <h3>Total :</h3>
-            {/* <p>${totalPrice}.00</p> */}
+            <p>${totalCost}.00</p>
           </div>
           <div className="row">
             <button>Checkout</button>

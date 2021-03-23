@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useHistory, useParams } from "react-router-dom";
-import { useGlobalState } from "../contexts/StateProvider";
+import { useGlobalState } from "../StateProvider";
 
 import SizeButtonGroup from "./SizeButtonGroup";
 

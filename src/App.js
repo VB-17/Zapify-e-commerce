@@ -4,7 +4,7 @@ import "./styles/main.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { auth } from "./firebase";
-import { useGlobalState } from "./contexts/StateProvider";
+import { useGlobalState } from "./StateProvider";
 
 import { createUser } from "./utils/firebaseUtils";
 

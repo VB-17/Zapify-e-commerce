@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useGlobalState } from "../contexts/StateProvider";
+import { useGlobalState } from "../StateProvider";
 
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";

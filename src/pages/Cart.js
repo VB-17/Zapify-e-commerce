@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import db from "../firebase";
 import Navbar from "../components/Navbar";
 import OrderSummary from "../components/OrderSummary";
-import { useGlobalState } from "../contexts/StateProvider";
+import { useGlobalState } from "../StateProvider";
 import { getCartItems } from "../utils/firebaseUtils";
 import Loader from "../components/Loader";
 import CartItem from "../components/CartItem";

@@ -1,0 +1,39 @@
+.composition{
+    display: grid;
+    grid-template-columns: 13% 87%;
+    height: 80vh;
+
+    margin-right: 55px;
+    &__main{
+        height: inherit;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }   
+
+    &__thumb{
+        display: flex;
+        margin-right: 20px;
+        flex-direction: column;
+
+        order: -1;
+        
+        img{
+            cursor: pointer;
+            height: 125px;
+            width: 100%;
+            object-fit: cover;
+
+            &:hover{
+                border: 3px black solid;
+                transform: scale(1.15);
+            }
+
+            &:not(:last-child){
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

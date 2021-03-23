@@ -10,8 +10,7 @@
 
   &__banner {
     position: relative;
-    display: grid;
-    place-items: center;
+    @include grid-center;
     background: #1e1d1e;
     min-height: 100vh;
 
@@ -21,8 +20,8 @@
 
       display: flex;
       justify-content: space-between;
-      flex: 1;
       align-items: center;
+      flex: 1;
 
       img {
         width: 40%;
@@ -56,8 +55,8 @@
           width: 35%;
           color: white;
 
-          background: linear-gradient(to right, #da3b42, #f5745d);
-          
+          background: $main-gradient;
+
           &:hover {
             background: #da3b42;
           }

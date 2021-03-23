@@ -1,4 +1,4 @@
-@mixin media($breakpoint) {
+@mixin breakpoint($breakpoint) {
   @if $breakpoint == phone {
     @media (max-width: $phone) {
       @content;
@@ -24,7 +24,13 @@
   }
 }
 
-@mixin align-center {
+@mixin grid-center {
   display: grid;
   place-items: center;
+}
+
+@mixin flex-place-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

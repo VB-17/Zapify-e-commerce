@@ -1,0 +1,9 @@
+.grid{
+    @include grid-center;
+    width: 80%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 3rem;
+}
+

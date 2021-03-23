@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Cart.scss";
-
-import Cookies from "js-cookie";
 
 import db from "../../firebase";
 import Navbar from "../../components/Navbar/Navbar";

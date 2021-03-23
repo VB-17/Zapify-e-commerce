@@ -1,0 +1,9 @@
+.loaders {
+    @include grid-center;
+    &__circular {
+        display: inline-block;
+        border-radius: 100%;
+        animation: 1s spin infinite;
+    }
+}
+

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./CartItem.scss";
 
 import { useGlobalState } from "../../contexts/StateProvider";
 import db from "../../firebase";

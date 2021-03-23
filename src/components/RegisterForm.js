@@ -1,13 +1,12 @@
 import React, { useRef } from "react";
-import "./RegisterForm.scss";
 
 import { useHistory } from "react-router-dom";
 
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
 import { FcGoogle } from "react-icons/fc";
 
-import { auth, provider } from "../../firebase";
+import { auth, provider } from "../firebase";
 
 function RegisterForm() {
   const emailRef = useRef();

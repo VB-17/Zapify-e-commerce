@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./ProductList.scss";
 
-import Product from "../Product/Product";
-import Loader from "../Loader/Loader";
+import Product from "./Product";
+import Loader from "./Loader";
 
-import db from "../../firebase";
+import db from "../firebase";
 
 function ProductList() {
   const [product, setProduct] = useState(null);

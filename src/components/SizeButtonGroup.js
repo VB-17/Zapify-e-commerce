@@ -1,5 +1,4 @@
 import React from "react";
-import "./SizeButtonGroup.scss";
 
 function SizeButtonGroup({ setValue }) {
   const sizeRange = ["xs", "s", "m", "l"];

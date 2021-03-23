@@ -1,8 +1,7 @@
 import React from "react";
-import "./SignIn.scss";
 
-import SignInForm from "../../components/SignInForm/SignInForm";
-import Navbar from "../../components/Navbar/Navbar";
+import SignInForm from "../components/SignInForm";
+import Navbar from "../components/Navbar";
 
 function SignIn() {
   return (

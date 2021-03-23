@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./Details.scss";
 
-import db from "../../firebase";
+import db from "../firebase";
 
-import ImageComposition from "../../components/ImageComposition/ImageComposition";
-import DetailProductInfo from "../../components/DetailProductInfo/DetailProductInfo";
-import Loader from "../../components/Loader/Loader";
+import ImageComposition from "../components/ImageComposition";
+import DetailProductInfo from "../components/DetailProductInfo";
+import Loader from "../components/Loader";
 
 import { useParams } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../components/Navbar";
 
 function Details() {
   const [productData, setProductData] = useState();

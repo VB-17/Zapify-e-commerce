@@ -1,14 +1,12 @@
 import React, { useRef } from "react";
-import "./Home.scss";
 
-import ScrollIndicator from "../../components/ScrollIndicator/ScrollIndicator";
-import ProductList from "../../components/ProductList/ProductList";
-import Navbar from "../../components/Navbar/Navbar";
+import ScrollIndicator from "../components/ScrollIndicator";
+import ProductList from "../components/ProductList";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const logoRef = useRef();
   const bannerRef = useRef();
-  
 
   const handleClick = () => {
     document

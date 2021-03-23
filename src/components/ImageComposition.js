@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './ImageComposition.scss'
 
 function ImageComposition({main , thumb}) {
     const [index , setIndex] = useState(0)

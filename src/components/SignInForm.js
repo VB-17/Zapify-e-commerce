@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-import "./SignInForm.scss";
 
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 
 function SignInForm() {

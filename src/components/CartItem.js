@@ -1,9 +1,4 @@
-import React, { useEffect } from "react";
-
-import { useGlobalState } from "../../contexts/StateProvider";
-import db from "../../firebase";
-
-// import { toggleQuantity, removeItem } from "../../utils/firebaseUtils";
+import React from "react";
 
 function CartItem({
   remove,
@@ -15,8 +10,6 @@ function CartItem({
   quantity,
   image,
 }) {
-  const [{ user }, dispatch] = useGlobalState();
-
   return (
     <div className="cartItem">
       <div className="cartItem__col1">

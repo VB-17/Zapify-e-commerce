@@ -1,10 +1,9 @@
 import React from "react";
-import "./Navbar.scss";
 
-import { useGlobalState } from "../../contexts/StateProvider";
+import { useGlobalState } from "../contexts/StateProvider";
 
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 
 function Navbar({ isSticky = true }) {
   const [{ user }] = useGlobalState();
@@ -32,12 +31,6 @@ function Navbar({ isSticky = true }) {
               </Link>{" "}
             </li>
           )}
-
-          {/* <li>
-            <Link style={{ color: "#adadad" }} to="/about">
-              About Us
-            </Link>{" "}
-          </li> */}
 
           <li>
             <Link to="/register">

@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import "./DetailProductInfo.scss";
 
-import { setItemToCart } from "../../utils/firebaseUtils";
+import { setItemToCart } from "../utils/firebaseUtils";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useHistory, useParams } from "react-router-dom";
+import { useGlobalState } from "../contexts/StateProvider";
 
-import { useGlobalState } from "../../contexts/StateProvider";
-
-import SizeButtonGroup from "../SizeButtonGroup/SizeButtonGroup";
+import SizeButtonGroup from "./SizeButtonGroup";
 
 import { GiMoneyStack } from "react-icons/gi";
 import CreditCardIcon from "@material-ui/icons/CreditCard";

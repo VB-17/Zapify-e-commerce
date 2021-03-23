@@ -1,5 +1,4 @@
 import React from "react";
-import "./OrderSummary.scss";
 
 function OrderSummary({ cart }) {
   const totalCost = cart.reduce((acc, curr) => {

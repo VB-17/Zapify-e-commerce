@@ -3,17 +3,17 @@ import "./styles/main.scss";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import db, { auth } from "./firebase";
+import { auth } from "./firebase";
 import { useGlobalState } from "./contexts/StateProvider";
 
 import { createUser } from "./utils/firebaseUtils";
 
-import Home from "./pages/Home/Home";
-import Details from "./pages/Details/Details";
-import Cart from "./pages/Cart/Cart";
-import SignIn from "./pages/SignIn/SignIn";
-import Register from "./pages/Register/Register";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
+import Cart from "./pages/Cart";
+import SignIn from "./pages/SignIn";
+import Register from "./pages/Register";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const [{ user }, dispatch] = useGlobalState();

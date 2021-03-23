@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import "./ErrorPage.scss";
+import Navbar from "../components/Navbar";
 
 import {useHistory} from 'react-router-dom';
 

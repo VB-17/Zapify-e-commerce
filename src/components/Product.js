@@ -1,9 +1,7 @@
 import React from "react";
-import "./Product.scss";
 import { Link } from "react-router-dom";
-import Rating from "../Rating/Rating";
+import Rating from "./Rating";
 
- 
 function Product({ info, productId }) {
   const { id, title, price, image, rating } = info;
 

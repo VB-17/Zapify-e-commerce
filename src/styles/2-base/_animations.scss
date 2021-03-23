@@ -1,0 +1,10 @@
+@keyframes scroll{
+    from{
+        opacity: 1;
+        top: 10px;
+    }
+    to{
+        opacity: 0;
+        top: 30px;
+    }
+}

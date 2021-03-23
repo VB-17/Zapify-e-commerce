@@ -10,7 +10,6 @@ import { useGlobalState } from "../../contexts/StateProvider";
 import { getCartItems } from "../../utils/firebaseUtils";
 import Loader from "../../components/Loader/Loader";
 import CartItem from "../../components/CartItem/CartItem";
-import { ContactsOutlined } from "@material-ui/icons";
 
 function Cart() {
   const [{ user }] = useGlobalState();

@@ -1,0 +1,30 @@
+@mixin media($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: $phone) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: $tab-land) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: $tab-port) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: $big-desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin align-center {
+  display: grid;
+  place-items: center;
+}

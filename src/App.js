@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
+import "./styles/main.scss";
 
-
-import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import db, { auth } from "./firebase";

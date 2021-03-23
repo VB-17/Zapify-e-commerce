@@ -1,0 +1,21 @@
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*:active , *:focus{
+  outline: none;
+}
+
+body{
+  background: $main-bg-color
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

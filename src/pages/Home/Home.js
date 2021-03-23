@@ -6,9 +6,9 @@ import ProductList from "../../components/ProductList/ProductList";
 import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
-  // const [{ user }] = useGlobalState();
   const logoRef = useRef();
   const bannerRef = useRef();
+  
 
   const handleClick = () => {
     document

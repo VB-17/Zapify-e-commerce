@@ -5,12 +5,16 @@
 /.pnp
 .pnp.js
 
+# secret key
+/src/firebase.js
+
+
 # testing
 /coverage
 
 # production
 /build
-src/.firebase.js
+
 
 # misc
 .DS_Store

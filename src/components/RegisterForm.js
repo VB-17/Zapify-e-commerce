@@ -49,7 +49,6 @@ function RegisterForm() {
           <input
             type="email"
             ref={emailRef}
-            // ref={email({pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/})}
           />
         </div>
         <div className="field">

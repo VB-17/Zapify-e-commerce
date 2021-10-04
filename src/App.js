@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { auth } from "./firebase";
 import { useGlobalState } from "./StateProvider";
-
 import { createUser } from "./utils/firebaseUtils";
 
 import Home from "./pages/Home";
@@ -16,7 +15,7 @@ import Register from "./pages/Register";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
-  const [{ user }, dispatch] = useGlobalState();
+  const [, dispatch] = useGlobalState();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {

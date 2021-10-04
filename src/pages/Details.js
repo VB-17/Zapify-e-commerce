@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from "react";
-
-import db from "../firebase";
-
+import Navbar from "../components/Navbar";
 import ImageComposition from "../components/ImageComposition";
 import DetailProductInfo from "../components/DetailProductInfo";
 import Loader from "../components/Loader";
 
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import useProduct from "../hooks/useProduct";
 
 function Details() {
-  const [productData, setProductData] = useState();
   const { productId } = useParams();
-
-  useEffect(() => {
-    const unsubscribe = db
-      .collection("Products")
-      .doc(productId)
-      .onSnapshot((snapshot) => setProductData(snapshot.data()));
-
-    return () => unsubscribe();
-  }, [productId]);
+  const productData = useProduct(productId);
 
   return (
     <>

@@ -6,11 +6,11 @@ import Loader from "./Loader";
 import db from "../firebase";
 
 function ProductList() {
-  const [product, setProduct] = useState(null);
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     const unsubscribe = db.collection("Products").onSnapshot((snapshot) =>
-      setProduct(
+      setProducts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
           data: doc.data(),
@@ -23,12 +23,12 @@ function ProductList() {
 
   return (
     <div id="productList" className="productList">
-      {product ? (
+      {products ? (
         <>
           <div className="productList__latest">
             <h1>Latest Products</h1>
             <div className="grid">
-              {product.slice(0, 4).map((item) => (
+              {products.slice(0, 4).map((item) => (
                 <div key={item.id}>
                   <Product info={item.data} productId={item.id} />
                 </div>
@@ -38,7 +38,7 @@ function ProductList() {
           <div className="productList__featured">
             <h1>Featured Products</h1>
             <div className="grid">
-              {product.slice(4, product.length).map((item) => (
+              {products.slice(4, products.length).map((item) => (
                 <div key={item.id}>
                   <Product info={item.data} productId={item.id} />
                 </div>
